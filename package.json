@@ -1,0 +1,19 @@
+{
+  "name": "tagchess",
+  "version": "0.0.1",
+  "description": "A chess-playing engine. Includes a default UI but is in fact UI agnostic.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TAGraves/TAGChess.git"
+  },
+  "author": "Tommy Graves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TAGraves/TAGChess/issues"
+  },
+  "homepage": "https://github.com/TAGraves/TAGChess#readme"
+}
