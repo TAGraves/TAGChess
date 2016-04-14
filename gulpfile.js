@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const babelify = require('babelify');
+require('babel-register');
 
 gulp.task('make', () => {
   const bro = require('gulp-bro');
@@ -28,7 +29,7 @@ gulp.task('lint', () => {
 
 gulp.task('test', ['lint'], () => {
   const mocha = require('gulp-mocha');
-  return gulp.src('test/*.js', { read: false })
+  return gulp.src('test/**/*.js', { read: false })
 		.pipe(mocha());
 });
 
