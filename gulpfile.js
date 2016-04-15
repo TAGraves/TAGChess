@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const babelify = require('babelify');
+
 require('babel-register');
 
 gulp.task('make', () => {
@@ -31,6 +32,21 @@ gulp.task('test', ['lint'], () => {
   const mocha = require('gulp-mocha');
   return gulp.src('test/**/*.js', { read: false })
 		.pipe(mocha());
+});
+
+gulp.task('coverage', (cb) => {
+  const mocha = require('gulp-mocha');
+  const istanbul = require('gulp-babel-istanbul');
+
+  gulp.src('src/**/*.js')
+	.pipe(istanbul())
+	.pipe(istanbul.hookRequire()) // or you could use .pipe(injectModules())
+  .on('finish', () => {
+    gulp.src('test/**/*.js')
+    .pipe(mocha())
+    .pipe(istanbul.writeReports())
+    .on('end', cb);
+  });
 });
 
 gulp.task('default', ['make'], () => (
