@@ -56,6 +56,15 @@ describe('Move', function () {
       expect(move.isLegal()).to.be.false;
     });
 
+    it('should return false when the piece invalidates the move', function () {
+      const location1 = new Location('A1');
+      const location2 = new Location('A2');
+      const player = new Player(BLACK);
+      const piece = new Piece(location1, player);
+      const move = new Move(piece, location2);
+      expect(move.isLegal()).to.be.false;
+    })
+
     it('should return true when the move is legal');
 
   });

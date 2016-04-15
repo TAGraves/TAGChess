@@ -19,6 +19,7 @@ export default class Piece {
     if (!(owner instanceof Player)) throw new TypeError(`${owner} is not a Player`);
     this.location = location;
     this.owner = owner;
+    this.hasMoved = false;
     location.occupant = this;
   }
 
@@ -34,8 +35,15 @@ export default class Piece {
 
     return new Promise((resolve, reject) => {
       if (!move.isLegal()) reject(new Error('Move was not legal'));
+      this.location.occupant = null;
       this.location = location;
+      location.occupant = this;
+      this.hasMoved = true;
       resolve(this);
     });
+  }
+
+  validateMove() {
+    return false;
   }
 }

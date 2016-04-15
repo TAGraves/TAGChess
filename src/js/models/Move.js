@@ -34,6 +34,7 @@ export default class Move {
         !this.newLocation.occupant ||
         this.piece.owner !== this.newLocation.occupant.owner
       )
+      && this.piece.validateMove(this.newLocation)
     );
   }
 }

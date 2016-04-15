@@ -51,6 +51,7 @@ describe('Piece', function () {
       const endLocation = new Location('A2');
       const player = new Player(BLACK);
       const piece = new Piece(location, player);
+      piece.validateMove = () => true; // since otherwise an uninherited piece cannot move
       expect(piece.moveTo(endLocation)).to.eventually.deep.equal(piece).notify(done);
     });
 
@@ -59,6 +60,7 @@ describe('Piece', function () {
       const endLocation = new Location('A2');
       const player = new Player(BLACK);
       const piece = new Piece(location, player);
+      piece.validateMove = () => true; // since otherwise an uninherited piece cannot move
       expect(piece.moveTo(endLocation)).to.eventually.have.property('location', endLocation).notify(done);
     })
   });
