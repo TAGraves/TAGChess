@@ -9,8 +9,8 @@ export default class Move {
   /**
    * Define a new move.
    *
-   * @param {Piece} piece - the Piece to be moved (always a King in the case of a castle)
-   * @param {Location} location - the Location to which the Piece is attempting to move.
+   * @param {Piece} piece - the piece to be moved (always a King in the case of a castle)
+   * @param {Location} location - the location to which the piece is attempting to move.
    */
   constructor(piece, location) {
     if (typeof piece === 'undefined') throw new ReferenceError('piece is undefined');
