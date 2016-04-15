@@ -11,6 +11,7 @@ describe('Player', function () {
     expect(() => new Player({})).to.throw(TypeError);
     expect(() => new Player([])).to.throw(TypeError);
     expect(() => new Player('')).to.throw(TypeError);
+    expect(() => new Player('GREEN')).to.throw(TypeError);
     expect(() => new Player(2)).to.throw(TypeError);
   });
 

@@ -7,7 +7,8 @@ export default class Player {
   /**
    * Create a player.
    *
-   * @param {number} color - the color of pieces the player will have; 0 for white and 1 for black
+   * @param {String} color - the color of pieces the player will have; 'WHITE' for white and
+   *                         'BLACK' for BLACK
    */
   constructor(color) {
     if (typeof color === 'undefined') throw new ReferenceError('color is undefined');
