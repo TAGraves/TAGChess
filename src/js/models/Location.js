@@ -12,5 +12,6 @@ export default class Location {
     if (typeof name === 'undefined') throw new ReferenceError('name is undefined');
     if (!name.match(/[A-H][1-8]/)) throw new Error(`Location name ${name} was invalid`);
     this.name = name;
+    this.occupant = null;
   }
 }

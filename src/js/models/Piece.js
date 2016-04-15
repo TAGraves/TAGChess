@@ -1,5 +1,6 @@
 import Location from './Location';
 import Move from './Move';
+import Player from './Player';
 
 /**
  * This class defines *pieces*, the principal component of a game of chess.
@@ -9,11 +10,16 @@ export default class Piece {
    * Create a piece.
    *
    * @param {Location} location - the starting location for the piece.
+   * @param {Player}   owner    - the player the piece belongs to.
    */
-  constructor(location) {
+  constructor(location, owner) {
     if (typeof location === 'undefined') throw new ReferenceError('location is undefined');
     if (!(location instanceof Location)) throw new TypeError(`${location} is not a Location`);
+    if (typeof owner === 'undefined') throw new ReferenceError('owner is undefined');
+    if (!(owner instanceof Player)) throw new TypeError(`${owner} is not a Player`);
     this.location = location;
+    this.owner = owner;
+    location.occupant = this;
   }
 
   /**

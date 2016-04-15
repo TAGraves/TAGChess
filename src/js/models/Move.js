@@ -30,6 +30,10 @@ export default class Move {
   isLegal() {
     return (
       this.oldLocation !== this.newLocation
+      && (
+        !this.newLocation.occupant ||
+        this.piece.owner !== this.newLocation.occupant.owner
+      )
     );
   }
 }

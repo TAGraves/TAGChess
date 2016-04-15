@@ -6,6 +6,7 @@ module.exports = {
     "semi-spacing": "off",
     "key-spacing": "off",
     "comma-spacing": "off",
+    "no-param-reassign": "off",
     "react/prop-types": "off"
   }
 };
