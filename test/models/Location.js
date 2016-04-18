@@ -14,7 +14,6 @@ describe('Location', function () {
 
   it('should throw a ReferenceError when the name is missing or undefined', function () {
     expect(() => new Location()).to.throw(ReferenceError);
-    expect(() => new Location(undefined)).to.throw(ReferenceError);
   });
 
   it('should throw an Error when the name is not a string in algebraic notation', function () {

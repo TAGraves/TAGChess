@@ -4,7 +4,6 @@ import Player, { BLACK, WHITE } from '../../src/js/models/Player.js';
 describe('Player', function () {
   it('should throw a ReferenceError when the color argument is missing or undefined', function () {
     expect(() => new Player()).to.throw(ReferenceError);
-    expect(() => new Player(undefined)).to.throw(ReferenceError);
   });
 
   it('should throw a TypeError when the color argument is not a valid color', function () {

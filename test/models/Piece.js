@@ -5,8 +5,9 @@ import Player, { BLACK } from '../../src/js/models/Player';
 
 describe('Piece', function () {
   it('should throw a ReferenceError when the location is missing or undefined', function () {
+    const player = new Player(BLACK);
     expect(() => new Piece()).to.throw(ReferenceError);
-    expect(() => new Piece(undefined)).to.throw(ReferenceError);
+    expect(() => new Piece(undefined, player)).to.throw(ReferenceError);
   });
 
   it('should throw a TypeError when the location is not an instance of Location', function () {
@@ -20,7 +21,6 @@ describe('Piece', function () {
   it('should throw a ReferenceError when the owner is missing or undefined', function () {
     const location = new Location('A1');
     expect(() => new Piece(location)).to.throw(ReferenceError);
-    expect(() => new Piece(location, undefined)).to.throw(ReferenceError);
   });
 
   it('should throw a TypeError when the owner is not an instance of Player', function () {
@@ -62,6 +62,6 @@ describe('Piece', function () {
       const piece = new Piece(location, player);
       piece.validateMove = () => true; // since otherwise an uninherited piece cannot move
       expect(piece.moveTo(endLocation)).to.eventually.have.property('location', endLocation).notify(done);
-    })
+    });
   });
 });

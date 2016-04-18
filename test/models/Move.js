@@ -13,7 +13,6 @@ describe('Move', function () {
 
   it('should throw a TypeError when the piece argument is not a Piece', function () {
     const location = new Location('A1');
-    expect(() => new Move(location)).to.throw(TypeError);
     expect(() => new Move('', location)).to.throw(TypeError);
     expect(() => new Move(1, location)).to.throw(TypeError);
     expect(() => new Move({}, location)).to.throw(TypeError);
@@ -26,7 +25,6 @@ describe('Move', function () {
     const player = new Player(BLACK);
     const piece = new Piece(location, player);
     expect(() => new Move(piece)).to.throw(ReferenceError);
-    expect(() => new Move(piece, undefined)).to.throw(ReferenceError);
   });
 
   it('should throw a TypeError when the location argument is not a Location', function () {
